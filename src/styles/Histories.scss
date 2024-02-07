@@ -1,0 +1,68 @@
+/* font-family: 'Share Tech Mono', monospace; */
+/* font-family: 'xolonium'; */
+
+#histories {
+	background-color: #fff6e9;
+	border-radius: 1rem;
+	padding: 1rem;
+	width: 100%;
+	max-width: 80%;
+	margin: 2rem auto 0 auto;
+	height: min-content;
+
+	h2 {
+		// font-family: 'Protest Riot', sans-serif;
+		font-family: 'Share Tech Mono', monospace;
+		// font-family: 'xolonium';
+		font-size: 3rem;
+		color: #0d9276;
+		text-align: center;
+		padding-bottom: 0.5rem;
+		margin-bottom: 0.5rem;
+		border-bottom: 4px solid #0d9276;
+		// text-shadow: 2px 2px 1px #000;
+		// letter-spacing: 0.2rem;
+	}
+
+	ul {
+		font-family: 'xolonium';
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		max-height: 28vh;
+		overflow-y: auto;
+
+		li {
+			width: 100%;
+			max-width: max-content;
+			height: max-content;
+			list-style: none;
+			font-size: 2rem;
+			color: #fff;
+			background-color: #0d9276;
+			padding: 0.5rem 1rem;
+			border-radius: 0.5rem;
+			// margin-bottom: 0.5rem;
+			span {
+				color: #faef5d;
+				margin: 0 1rem;
+
+				&.no {
+					color: #000;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	#histories {
+		width: 100%;
+		max-width: 600px;
+		ul {
+			justify-content: flex-start;
+			max-height: 80vh;
+		}
+	}
+}

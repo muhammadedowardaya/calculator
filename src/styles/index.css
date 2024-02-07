@@ -1,0 +1,32 @@
+@font-face {
+	font-family: 'xolonium';
+	src: url('../assets/fonts/Xolonium.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'xolonium-bold';
+	src: url('../assets/fonts/XoloniumBold.otf') format('opentype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+/* font-family: 'Share Tech Mono', monospace; */
+/* font-family: 'xolonium'; */
+/* font-family: 'Protest Riot', sans-serif; */
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: #43766c;
+}
