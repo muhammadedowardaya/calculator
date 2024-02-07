@@ -1,6 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { evaluate } from 'mathjs';
 
+// Fungsi untuk mengubah formula menjadi tampilan yang lebih terbaca
+const formatFormulaToDisplay = (formula) => {
+	const operators = ['+', 'x', '/', '-'];
+	return formula
+		.split('')
+		.map((item) => {
+			if (operators.includes(item)) {
+				return ` ${item} `;
+			} else {
+				return item;
+			}
+		})
+		.join('');
+};
+
 const initialState = {
 	display: 0, // Menyimpan nilai yang ditampilkan pada layar kalkulator
 	formula: '', // Menyimpan formula kalkulator
@@ -42,21 +57,6 @@ export const calculatorSlice = createSlice({
 					state.resultEvaluated = false;
 				} else {
 					const operatorWithoutMin = ['+', 'x', '/'];
-					const operators = ['+', 'x', '/', '-'];
-
-					// Fungsi untuk mengubah formula menjadi tampilan yang lebih terbaca
-					const formatFormulaToDisplay = (formula) => {
-						return formula
-							.split('')
-							.map((item) => {
-								if (operators.includes(item)) {
-									return ` ${item} `;
-								} else {
-									return item;
-								}
-							})
-							.join('');
-					};
 
 					if (/^0{1}/.test(state.formula) && value === '0') {
 						// Jangan tambahkan lebih dari satu nol pada awal angka
@@ -91,6 +91,7 @@ export const calculatorSlice = createSlice({
 		// Reducer untuk menghapus satu karakter dari display
 		removeFromDisplay: (state) => {
 			state.formula = state.formula.slice(0, -1);
+			state.formulaToDisplay = formatFormulaToDisplay(state.formula);
 			state.display = state.display.slice(0, -1);
 		},
 
