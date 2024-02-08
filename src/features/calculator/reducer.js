@@ -3,7 +3,7 @@ import { evaluate } from 'mathjs';
 
 // Fungsi untuk mengubah formula menjadi tampilan yang lebih terbaca
 const formatFormulaToDisplay = (formula) => {
-	const operators = ['+', 'x', '/', '-'];
+	const operators = ['+', 'x', '/', '-', '='];
 	return formula
 		.split('')
 		.map((item) => {
@@ -90,9 +90,11 @@ export const calculatorSlice = createSlice({
 
 		// Reducer untuk menghapus satu karakter dari display
 		removeFromDisplay: (state) => {
-			state.formula = state.formula.slice(0, -1);
-			state.formulaToDisplay = formatFormulaToDisplay(state.formula);
-			state.display = state.display.slice(0, -1);
+			const formulaWithoutSpace = state.formulaToDisplay.replace(/\s/g, '');
+			const formula = formulaWithoutSpace.slice(0, -1);
+			state.formulaToDisplay = formatFormulaToDisplay(formula);
+			state.lastResult = state.lastResult.toString().slice(0,-1);
+			state.display = 0;
 		},
 
 		// Reducer untuk mereset kalkulator
